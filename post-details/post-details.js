@@ -56,6 +56,5 @@ let getPostComments = async () => {
         commentDivEl.append(idDivEl, nameDivEl, emailDivEl, bodyDivEl);
         commentsWrapper.appendChild(commentDivEl);
     }
-
     document.body.appendChild(commentsWrapper);
 }

@@ -72,12 +72,15 @@ let gettingUserInfo = async () => {
     let button = document.createElement('button');
     button.innerText = 'posts of current user';
     button.onclick = () => {
-        gettingPosts();
+        if (gettingPosts()) {
+            button.setAttribute('disabled', 'true');
+        } else {
+            button.removeAttribute('disabled')
+        }
     }
-    button.classList.add('button-current-post')
+    button.classList.add('button-current-post');
 
     wrapper.append(userInfoDiv, infoDiv, button);
-
     document.body.append(header, wrapper);
 }
 void gettingUserInfo();
@@ -99,11 +102,10 @@ let gettingPosts = async () => {
         button.classList.add('post-button');
         button.onclick = () => {
             location.href = `../post-details/post-details.html?postsId=${post.id}`;
-        }
+        };
 
         postDivEl.appendChild(button);
         postsDivEl.appendChild(postDivEl);
     }
-
     document.body.append(postsDivEl);
 }
